@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        #drop-1{
+            white-space: pre-line;
+        }
+        #drop-2{
+            white-space: pre-line;
+        }
+        #drop-5{
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <center><h3>TAX INVOICE</h3></center>
+    <form>
+        <table border="2" class="border-dark table-bordered w-100">
+            <tr>
+                <td><span id="drop-1"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="text-center"><img src="./logo.jpeg"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Invoice No</td>
+                <td><span id="fn-1"></span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Date</td>
+                <td><span id="fn-4"></span></td>
+            </tr>
+            <tr>
+                <td style="width: 350px;">Invoice To:<br><span id="drop-2"></span></td>
+            </tr>
+            <tr>
+                <td>Pay Period</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span id="fn-8"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="bg-primary h6">
+                <td>Activity<span id="fn-9"></span></td>
+                <td></td>
+                <td>Rate in <span id="drop-3"></span></td>
+                <td><span id="hours"></span></td>
+                <td><span id="drop-4"></span></td>
+                <td>Amount in <span id="currency"></span></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><span id="id_po"></span></td>
+                <td><span id="fn-5"></span></td>
+                <td><span id="fn-6"></span></td>
+                <td><span id="fn-7"></span>%</td>
+                <td><span id="decAmount"></span></td>
+            </tr>
+            <tr>
+                <td><span id="fn-2"></span></td>
+                <td><span id="fn-3"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Please remit the total including <span id="banking"></span> amount
+                  <br><span id="drop-5"></span><br>
+                 <!-- Account No: <span id="fn-9"></span><br>
+                    Account Name: <span id="accName"></span><br>
+                    Swift code: <span id="sft"></span> -->
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="width: 15%;">
+                    SUB TOTAL: <br>
+                    <span id="mis_gst"></span> TOTAL: <br>
+                    TOTAL: 
+                </td>
+                <td>
+                    <span id="subTotal"></span><br>
+                    <span id="gst"></span><br>
+                    <span id="ta"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-light">--</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td class="text-light">--</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Balance due</td>
+                <td><span id="balance"></span></td>
+            </tr>
+            <tr>
+                <td><b><span id="summary"></span> Summary</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+            </tr>
+            <tr class="bg-primary h6">
+                <td><span id="rate1"></span> RATE</td>
+                <td></td>
+                <td></td>
+                <td><span id="rate_tax"></span> AMOUNT</td>
+                <td></td>
+                <td>NET AMOUNT</td>
+            </tr>
+            <tr>
+                <td><span id="g"></span>@<span id="p"></span>%</td>
+                <td></td>
+                <td></td>
+                <td><span id="gstAM"></span></td>
+                <td></td>
+                <td id="netAmount"></td>
+            </tr>
+            <tr>
+                <td class="text-light">--</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+            </tr>
+        </table>
+    </form>
+    <center><h4>Thank you for the business</h4></center>
+</body>
+<script>
+    const compOp1 = "\nDOOR 12 LUXUR PLACE MAGSAYSAY AVE SINGCANG-AIRPORT 6100 BACOLOD CITY(CAPITAL) \nNEGROS OCCIDENTAL PHILIPPINES";
+    const compOp2 = "\nAddress: 111 North Bridge Road, \n#27- 01 Peninsula plaza, Singapore 179098 \nPhone: 0065 68495467 \nE Mail Address : sreekanth@aitekltd.com. GST Registration No: 200906834G";
+    const compOp3 = "\nAddress: 111 North Bridge Road, \n#27- 01 Peninsula plaza, Singapore 179098 \nPhone: 0065 68495467 \nE Mail Address : sreekanth@aitekltd.com. \nGST Registration No: 201304790R";
+    const compOp4 = "\n29-2, Level 29, Oval Damansara \n685, Jalan Damansara, Taman Tun Dr. Ismail 60000 Wilayah Persekutuan Kuala Lumpur \nEmail: Contact@aitekltd. \nSST No. W10-2301-32000038";
+    const ivcOp1 = "\n2F STREET FRANCIS CENTRE, ARANETA AVENUE SINGCANGM BACOLOD CITY, PHILIPPINES \nREG NO:CS201327362";
+    const ivcOp2 = "\nAddress: 29-4 & 31-4, Block F2, Jalan PJU 1/42A, Dataran Prima, 47301 Petaling Jaya, Selangor, Malaysia";
+    const ivcOp3 = "\n (1142727-A), Unit 28.02, Menara LGB, No. 1, Jalan Wan Kadir, Taman Tun Dr. Ismail, 60000 Kuala Lumpur";
+    const ivcOp4 = "\nCENTRIUM SQUARE, 320 SERANGOON ROAD, #12-10, Postal 218108";
+    const ivcOp5 = "\n9 Temasek Boulevard, #43-01 Suntec Tower 2, Singapore 038989";
+    const ivcOp6 = "\n18 Cross Street #10-03, China Square \nCentral Singapore 048423";
+    const ivcOp7 = "\n18 Cross Street #10-06/09 Cross Street Exchange, Singapore 048423";
+    const ivcOp8 = "\nJackson Square, Block C, 02-36/37  #11 Lor 3, Toa Payoh, Singapore 319579";
+    const ivcOp9 = "\n 12 Marina View, #15-01 Asia Square Tower 2 \nSingapore 018961";
+    const ivcOp10 = "\nAddress: 05-05, Plaza 8 @, Changi Business Park Ave 1, CBP, Singapore 486025";
+    const ivcOp11 = "\n#11-07, Paya Lebar Square, 60, Paya Lebar Road, Singapore 409051";
+    const ivcOp12 = "\n29-2, Level 29, Oval Damansara \n685, Jalan Damansara, Taman Tun Dr. Ismail 60000 Wilayah Persekutuan Kuala Lumpur \nEmail: Contact@aitekltd. \nSST No. W10-2301-32000038";
+    const ivcOp13 = "\n5th Floor Ramcar Center, 80-82\nDon A. Roces Avenue, Diliman Quezon City, Philippines 1114";
+    const ivcOp14 = "\n17/F, Hutchison Telecom Tower, 99 Cheung Fai Road, Tsing Yi, Hong Kong\nAttention to Mr.Alvin Lau";
+    const bankOp1 = "Bank Name: BDO\nAccount Name: AITEK PVK IT SERVICES INC\nAccount number: 000720270944 \nBank Branch: Bacolod-Gonzaga \nSwift-Code: BNORPHMMXXX";
+    const bankOp2 = "Bank: OVERSEA-CHINESE BANKING CORPORATION LIMITED\nAccount No: 647352756001\nAccount Name: AITEK SERVICES PTE LTD \nSWIFT-Code: OCBCSGSG";
+    const bankOp3 = "Bank: DBS Bank\nAccount No: 1069019150 \nAccount Name: AITEK Pte. Ltd.\nSWIFT-Code: DBSSSGSG";
+    const bankOp4 = "Bank name: AMBANK (M) BERHAD\nAITEK PVK SDN BHD \nAccount No: 8881052269518 \n Swift-Code: ARBKMYKL";
+    const params = new URLSearchParams(window.location.search);
+    const id1 = params.get("fn-1");
+    const id2 = params.get("fn-2");
+    const id3 = params.get("fn-3");
+    const id4 = params.get("fn-4");
+    const id5 = params.get("fn-5");
+    const id6 = params.get("fn-6");
+    const id7 = params.get("fn-7");
+    const id8 = params.get("fn-8");
+    const id9 = params.get("fn-9");
+    /*const id10 = params.get("fn-10");*/
+    const decodedData1 = decodeURIComponent(id1);
+    const decodedData2 = decodeURIComponent(id2);
+    const decodedData3 = decodeURIComponent(id3);
+    const decodedData4 = decodeURIComponent(id4);
+    const decodedData5 = decodeURIComponent(id5);
+    const decodedData6 = decodeURIComponent(id6);
+    const decodedData7 = decodeURIComponent(id7);
+    const decodedData8 = decodeURIComponent(id8);
+    const decodedData9 = decodeURIComponent(id9);
+    /*const decodedData10 = decodeURIComponent(id10);*/
+    document.getElementById("fn-1").textContent = decodedData1;
+    document.getElementById("fn-2").textContent = decodedData2;
+    document.getElementById("fn-3").textContent = decodedData3;
+    document.getElementById("fn-4").textContent = decodedData4;
+    document.getElementById("fn-5").textContent = decodedData5;
+/*-----------------------------------------------------------------------------------------------------------------*/
+    document.getElementById("fn-6").textContent = decodedData6;
+/*-----------------------------------------------------------------------------------------------------------------*/
+    document.getElementById("fn-7").textContent = decodedData7;
+    document.getElementById("fn-8").textContent = decodedData8;
+    document.getElementById("fn-9").textContent = decodedData9;
+    /*document.getElementById("sft").textContent = decodedData10;*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+    const dvalue1 = sessionStorage.getItem("value1");
+    if(dvalue1==="AITEK PTE LTD"){
+        document.getElementById("drop-1").textContent = dvalue1+compOp2;
+        document.getElementById("drop-5").textContent = bankOp3;
+    }
+    else if(dvalue1==="AITEK SERVICES PTE LTD"){
+        document.getElementById("drop-1").textContent = dvalue1+compOp3;
+        document.getElementById("drop-5").textContent = bankOp2;
+    }
+    else if(dvalue1==="AITEK PVK SDN BHD"){
+        document.getElementById("drop-1").textContent = dvalue1+compOp4;
+        document.getElementById("drop-5").textContent = bankOp4;
+    }
+    else{
+        document.getElementById("drop-1").textContent = dvalue1+compOp1;
+        document.getElementById("drop-5").textContent = bankOp1;
+    }
+/*-- ----------------------------------------------------------------------------------------------------------------*/
+    
+    const dvalue2 = sessionStorage.getItem("value2");
+    if(dvalue2==="AITEK PVK IT SERVICES INC"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp1;
+    }
+    else if(dvalue2==="GAPbuster Worldwide Malaysia Sdn. Bhd"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp2;
+    }
+    else if(dvalue2==="RIZING SDN BHD"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp3;
+    }
+    else if(dvalue2==="C2C INNOVATIONS PTE. LTD"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp4;
+    }
+    else if(dvalue2==="INFOSYS SINGAPORE PTE. LTD"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp5;
+    }
+    else if(dvalue2==="ABeam Analytics Pte. Ltd"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp6;
+    }
+    else if(dvalue2==="ABeam Consulting (S) Pte Ltd"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp7;
+    }
+    else if(dvalue2==="ASTA INNOSYS PTE. LTD"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp8;
+    }
+    else if(dvalue2==="KPMG Services Pte Ltd"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp9;
+    }
+    else if(dvalue2==="WIPRO LIMITED"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp10;
+    }
+    else if(dvalue2==="BIRLASOFT LIMITED(SINGAPORE BRANCH)"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp11;
+    }
+    else if(dvalue2==="AITEK PVK SDN BHD"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp12;
+    }
+    else if(dvalue2==="Kaisa Consulting Company Inc."){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp13;
+    }
+    else if(dvalue2==="HGC Global communications Limited"){
+        document.getElementById("drop-2").textContent = dvalue2+ivcOp14;
+    }
+/*----------------------------------------------------------------------------------------------------------------*/
+    let days1;
+    const dvalue3 = sessionStorage.getItem("value3");
+    if(dvalue3==="SGD/Hour"||dvalue3==="PHP/Hour"){
+        days1 = "No of hours";
+    }
+    else{
+        days1 = "No of days";
+    }
+    document.getElementById("hours").textContent = days1;
+/*-----------------------------------------------------------------------------------------------------------------*/
+    document.getElementById("drop-3").textContent = dvalue3;
+    const dvalue4 = sessionStorage.getItem("value4");
+    document.getElementById("drop-4").textContent = dvalue4;
+    document.getElementById("summary").innerText = dvalue4;
+    const dvalue6 = sessionStorage.getItem("value6");
+    document.getElementById("id_po").textContent = dvalue6;
+/*-----------------------------------------------------------------------------------------------------------------*/
+    /*const dvalue5 = sessionStorage.getItem("value5");
+    if(dvalue5==="Bank Name: BDO"){
+        document.getElementById("drop-5").textContent = dvalue5+bankOp1;
+    }
+    else if(dvalue5==="Bank: OVERSEA-CHINESE BANKING CORPORATION LIMITED"){
+        document.getElementById("drop-5").textContent = dvalue5+bankOp2;
+    }
+    else if(dvalue5==="Bank: DBS Bank"){
+        document.getElementById("drop-5").textContent = dvalue5+bankOp3;
+    }
+    else{
+        document.getElementById("drop-5").textContent = dvalue5+bankOp4;
+    }*/
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+    let currency="a";
+    if(dvalue3==="SGD/Day"||dvalue3==="SGD/Month"||dvalue3==="SGD/Hour"){
+        currency = "SGD";
+    }
+    else if(dvalue3==="MYR/Day"||dvalue3==="MYR/Month"){
+        currency = "MYR";
+    }
+    else if(dvalue3==="INR/Day"||dvalue3==="INR/Month"){
+        currency = "INR";
+    }
+    else{
+        currency = "PHP";
+    }
+    document.getElementById("currency").textContent = currency;
+/*----------------------------------------------------------------------------------------------------------------*/
+    let decimalAmount = parseFloat(decodedData5);
+    let totalAmount = 0;
+    let gst = decimalAmount*(decodedData7/100);
+    if(dvalue3==="SGD/Month"||dvalue3==="PHP/Month"||dvalue3==="MYR/Month"||dvalue3==="INR/Month"){
+        totalAmount = parseFloat(gst)+parseFloat(decimalAmount);
+    }
+    else if(dvalue3==="SGD/Day"||dvalue3==="PHP/Day"||dvalue3==="MYR/Day"||dvalue3==="INR/Day"||dvalue3==="PHP/Hour"||dvalue3==="SGD/Hour"){
+        decimalAmount = parseFloat(decodedData5)*parseFloat(decodedData6);
+        gst = decimalAmount*(decodedData7/100);
+        totalAmount = parseFloat(decimalAmount)+parseFloat(gst);
+    }
+/*-----------------------------------------------------------------------------------------------------------------*/
+    document.getElementById("banking").textContent = dvalue4;
+    document.getElementById("decAmount").textContent = decimalAmount.toFixed(2);
+    document.getElementById("gst").textContent = gst.toFixed(2);
+    document.getElementById("subTotal").textContent = decimalAmount.toFixed(2);
+    document.getElementById("ta").textContent = totalAmount.toFixed(2);
+    document.getElementById("balance").textContent = totalAmount.toFixed(2);
+    document.getElementById("g").textContent = dvalue4;
+    document.getElementById("p").textContent = decodedData7;
+    document.getElementById("gstAM").textContent = gst.toFixed(2);
+    document.getElementById("netAmount").textContent = decimalAmount.toFixed(2);
+    document.getElementById("rate1").textContent = dvalue4;
+    document.getElementById("rate_tax").textContent = dvalue4;
+    document.getElementById("mis_gst").textContent = dvalue4;
+</script>
+</html>

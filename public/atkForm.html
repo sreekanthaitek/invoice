@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .image{
+            height: 60px;
+            width: 80px;
+        }
+        .main-box{
+            background-color: lightgray;
+            height: auto;
+            width: 650px;
+            text-align: center;
+            display: flex;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            padding-top: 25px;
+        }
+        body{
+            background-image: linear-gradient(to right, #be2758,#b396b0,#b396b0,rgb(126, 126, 210));
+        }
+        .try{
+            margin-bottom: 70px;
+            width: 150px;
+            height: 50px;
+        }
+        .try:hover{
+            height: 70px;
+            width: 200px;
+            border: none;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center">
+    <div class="main-box mt-2">
+        <form class="col g-3 needs-validation" novalidate action="atkDisplay.html" method="GET">
+            <h2 class="text-danger text center"><i>Aitek Billings</i></h2>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-1" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Party Name</b></label>
+                <select class="form-select" id="drop-1" required >
+                    <option selected disabled value="">Select Company</option>
+                    <option>
+                        Radiant Digital Solutions Private Limited
+                    </option>
+                    <option>
+                        AITEK PTE LTD 
+                    </option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose company name
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="invoiceNumber" class="form-label ms-2"><b class="text-danger star">* </b><b>Invoice No</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="invoiceNumber" name="invoiceNumber" required placeholder="Please enter Invoice number">
+                    <div class="invalid-feedback">
+                        Invoice number is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="date" class="form-label ms-2"><b class="text-danger star">* </b><b>Date</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="date" name="date" required placeholder="Please enter the Date">
+                    <div class="invalid-feedback">
+                        Date is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="name" class="form-label ms-2"><b class="text-danger star">* </b><b>Consulting fees for</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="name" name="name" required placeholder="Please enter name">
+                    <div class="invalid-feedback">
+                        Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="servicePeriod" class="form-label ms-2"><b class="text-danger star">* </b><b>Service Period</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="servicePeriod" name="servicePeriod" required placeholder="Please enter service period">
+                    <div class="invalid-feedback">
+                        Service Period is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="inr" class="form-label ms-2"><b class="text-danger star">* </b><b>Amount in INR</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="inr" name="inr" required placeholder="Please enter the amount in INR">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="sgd" class="form-label ms-2"><b class="text-danger star">* </b><b>Amount in sgd</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="sgd" name="sgd" required placeholder="Please enter the amount in SGD">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="status" class="form-label ms-2"><b class="text-danger star">* </b><b>Status</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="status" name="status" required placeholder="Status?" value="Not Paid">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="text-start ms-4">
+                <p><b class="text-danger text-start">* represents mandatory </b></p>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-danger try" type="submit" onclick="submitAll()">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function submitAll(){
+        const inp1 = document.getElementById("drop-1");
+        const selIndex1 = inp1.selectedIndex;
+        const selValue1 = inp1.options[selIndex1].value;
+        const invoiceNumber = document.getElementById("invoiceNumber").value;
+        const date = document.getElementById("date").value;
+        const servicePeriod = document.getElementById("servicePeriod").value;
+        const inr = document.getElementById("inr").value;
+        const sgd = document.getElementById("sgd").value;
+        const name = document.getElementById("name").value;
+        if(invoiceNumber.trim()===""||date.trim()===""||servicePeriod.trim()===""
+        ||name.trim()===""||inr.trim()===""||sgd.trim()===""||selValue1.trim()===""){
+            return;
+        }
+        const ecdinvoiceNumber = encodeURIComponent(invoiceNumber);
+        const ecddate = encodeURIComponent(date);
+        const ecdservicePeriod = encodeURIComponent(servicePeriod);
+        const ecdinr = encodeURIComponent(inr);
+        const ecdsgd = encodeURIComponent(sgd);
+        const ecdname = encodeURIComponent(name);
+        sessionStorage.setItem("value1", selValue1);
+        window.location.href = 'atkDisplay.html';
+        window.location.href = `indDisplay1.html?invoiceNumber=${ecdinvoiceNumber}&date=${ecddate}&servicePeriod=${ecdservicePeriod}
+        &name=${ecdname}&sgd=${ecdsgd}&inr=${ecdinr}`
+    }
+</script>
+<script>
+    (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
+</html>

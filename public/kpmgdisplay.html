@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <center><h3>TAX INVOICE</h3></center>
+    <form>
+        <table border="2" class="border-dark table-bordered w-100">
+            <tr>
+                <td>&nbsp;AITEK PTE LTD<br> 
+                    &nbsp;Address: 111 North Bridge Road,<br> 
+                    &nbsp;#27- 01 Peninsula plaza, Singapore 179098<br> 
+                    &nbsp;Phone: 0065 68495467<br> 
+                    &nbsp;E Mail Address : finance@aitekltd.com.<br> 
+                    &nbsp;GST Registration No:200906834G
+                </td>
+                <td></td>
+                <td class="text-center"><img src="./logo.jpeg"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Invoice Number</td>
+                <td id="invoiceNumber"></td>
+            </tr>
+            <tr class="ms-2">
+                <td>&nbsp;Invoice To:</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;KPMG Services Pte Ltd
+                    <br>&nbsp;12 Marine View,#15-01
+                    <br>&nbsp;Asia Square Tower 2
+                    <br>&nbsp;Singapore 018961<br>
+                </td>
+                <td class="ms-5">Date</td>
+                <td id="date"></td>
+            </tr>
+            <tr>
+                <td class="text-light">--</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Service Period -<span id="servicePeriod"></span></td>
+                <td></td>
+            </tr>
+            <tr class="bg-primary h6">
+                <td>Actvity<span id="activity"></span></td>
+                <td>QTY in Man Days</td>
+                <td>Amount in SGD</td>
+            </tr>
+            <tr>
+                <td id="name1"></td>
+                <td id="days1"></td>
+                <td id="amnt1"></td>
+            </tr>
+            <tr>
+                <td id="name2"></td>
+                <td id="days2"></td>
+                <td id="amnt2"></td>
+            </tr>
+            <tr>
+                <td id="name3"></td>
+                <td id="days3"></td>
+                <td id="amnt3"></td>
+            </tr>
+            <tr>
+                <td id="name4"></td>
+                <td id="days4"></td>
+                <td id="amnt4"></td>
+            </tr>
+            <tr>
+                <td id="name5"></td>
+                <td id="days5"></td>
+                <td id="amnt5"></td>
+            </tr>
+            <tr>
+                <td id="name6"></td>
+                <td id="days6"></td>
+                <td id="amnt6"></td>
+            </tr>
+            <tr>
+                <td id="name7"></td>
+                <td id="days7"></td>
+                <td id="amnt7"></td>
+            </tr>
+            <tr>
+                <td>Please remit the total including GST amount to</td>
+            </tr>
+            <tr>
+                <td>
+                    Account No:1069019150
+                    <br>Bank: DBS Bank
+                    <br>Account name: AITEK Pte. Ltd.
+                    <br>SWIFT Code: DBSSSGSG
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>SUB TOTAL</td>
+                <td id="subTotal"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>GST TOTAL</td>
+                <td id="gstTotal"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>TOTAL</td>
+                <td id="total"></td>
+            </tr>
+            <tr>
+                <td class="text-light">--</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>BALANCE DUE IN SGD</td>
+                <td id="balanceDueInSGD" class="bg-primary h6"></td>
+            </tr>
+            <tr>
+                <td><b>GST SUMMARY</b></td>
+            </tr>
+            <tr class="bg-primary h6">
+                <td>RATE</td>
+                <td>GST AMOUNT</td>
+                <td>NET AMOUNT</td>
+            </tr>
+            <tr>
+                <td>GST-<span id="gstSummary"></span>%</td>
+                <td id="gstAmount"></td>
+                <td id="netAmount"></td>
+            </tr>
+        </table>
+    </form>
+    <h4 class="text-center">THANK YOU FOR THE BUSINESS</h4>
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const invoiceNumber = params.get("invoiceNumber");
+    const date = params.get("date");
+    const servicePeriod = params.get("servicePeriod");
+    const gst = params.get("gst");
+    const activity = params.get("activity");
+    const name1 = params.get("name1");
+    const days1 = params.get("days1");
+    let amnt1 = params.get("amnt1");
+    const name2 = params.get("name2");
+    const days2 = params.get("days2");
+    let amnt2 = params.get("amnt2");
+    const name3 = params.get("name3");
+    const days3 = params.get("days3");
+    let amnt3 = params.get("amnt3");
+    const name4 = params.get("name4");
+    const days4 = params.get("days4");
+    let amnt4 = params.get("amnt4");
+    const name5 = params.get("name5");
+    const days5 = params.get("days5");
+    let amnt5 = params.get("amnt5");
+    const name6 = params.get("name6");
+    const days6 = params.get("days6");
+    let amnt6 = params.get("amnt6");
+    const name7 = params.get("name7");
+    const days7 = params.get("days7");
+    let amnt7 = params.get("amnt7");
+/*--------------------------------------------DECODING THE EXPORTED VALUES-----------------------------------------*/
+    const decinvoiceNumber = decodeURIComponent(invoiceNumber);
+    const decdate = decodeURIComponent(date);
+    const decservicePeriod = decodeURIComponent(servicePeriod);
+    const decgst = decodeURIComponent(gst);
+    const decactivity = decodeURIComponent(activity);
+    const decname1 = decodeURIComponent(name1);
+    const decdays1 = decodeURIComponent(days1);
+    let decamnt1 = decodeURIComponent(amnt1);
+    const decname2 = decodeURIComponent(name2);
+    const decdays2 = decodeURIComponent(days2);
+    let decamnt2 = decodeURIComponent(amnt2);
+    const decname3 = decodeURIComponent(name3);
+    const decdays3 = decodeURIComponent(days3);
+    let decamnt3 = decodeURIComponent(amnt3);
+    const decname4 = decodeURIComponent(name4);
+    const decdays4 = decodeURIComponent(days4);
+    let decamnt4 = decodeURIComponent(amnt4);
+    const decname5 = decodeURIComponent(name5);
+    const decdays5 = decodeURIComponent(days5);
+    let decamnt5 = decodeURIComponent(amnt5);
+    const decname6 = decodeURIComponent(name6);
+    const decdays6 = decodeURIComponent(days6);
+    let decamnt6 = decodeURIComponent(amnt6);
+    const decname7 = decodeURIComponent(name7);
+    const decdays7 = decodeURIComponent(days7);
+    let decamnt7 = decodeURIComponent(amnt7);
+
+/*---------------------------------------IF CONDITIONS TO MAKE NULL TO ZERO---------------------------------------*/
+    let s1,s2,s3,s4,s5,s6,s7;
+    if(decamnt1===null||decamnt1===""){
+        s1=0;
+    }
+    else{
+        s1 = decamnt1;
+    }
+    if(decamnt2===null||decamnt2===""){
+        s2=0;
+    }
+    else{
+        s2 = decamnt2;
+    }
+    if(decamnt3===null||decamnt3===""){
+        s3=0;
+    }
+    else{
+        s3 = decamnt3;
+    }
+    if(decamnt4===null||decamnt4===""){
+        s4=0;
+    }
+    else{
+        s4 = decamnt4;
+    }
+    if(decamnt5===null||decamnt5===""){
+        s5=0;
+    }
+    else{
+        s5 = decamnt5;
+    }
+    if(decamnt6===null||decamnt6===""){
+        s6=0;
+    }
+    else{
+        s6 = decamnt6;
+    }
+    if(decamnt7===null||decamnt7===""){
+        s7=0;
+    }
+    else{
+        s7 = decamnt7;
+    }
+/*-------------------------------------------MATHEMATICAL CALCULATIONS--------------------------------------------*/
+
+    const subTotalAmount = parseFloat(s1)+parseFloat(s2)+parseFloat(s3)+parseFloat(s4)+parseFloat(s5)+parseFloat(s6)+parseFloat(s7); 
+    const gstAmount = parseFloat(subTotalAmount)*parseFloat(decgst/100);
+    const total = subTotalAmount+gstAmount;
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+document.getElementById("invoiceNumber").textContent = decinvoiceNumber;
+document.getElementById("date").textContent = decdate;
+document.getElementById("servicePeriod").textContent = " "+decservicePeriod;
+document.getElementById("activity").textContent = decactivity;
+document.getElementById("name1").textContent = decname1;
+document.getElementById("days1").textContent = decdays1;
+document.getElementById("amnt1").textContent = decamnt1;
+document.getElementById("name2").textContent = decname2;
+document.getElementById("days2").textContent = decdays2;
+document.getElementById("amnt2").textContent = decamnt2;
+document.getElementById("name3").textContent = decname3;
+document.getElementById("days3").textContent = decdays3;
+document.getElementById("amnt3").textContent = decamnt3;
+document.getElementById("name4").textContent = decname4;
+document.getElementById("days4").textContent = decdays4;
+document.getElementById("amnt4").textContent = decamnt4;
+document.getElementById("name5").textContent = decname5;
+document.getElementById("days5").textContent = decdays5;
+document.getElementById("amnt5").textContent = decamnt5;
+document.getElementById("name6").textContent = decname6;
+document.getElementById("days6").textContent = decdays6;
+document.getElementById("amnt6").textContent = decamnt6;
+document.getElementById("name7").textContent = decname7;
+document.getElementById("days7").textContent = decdays7;
+document.getElementById("amnt7").textContent = decamnt7;
+document.getElementById("subTotal").textContent = subTotalAmount.toFixed(2);
+document.getElementById("gstTotal").textContent = gstAmount.toFixed(2);
+document.getElementById("total").textContent = total.toFixed(2);
+document.getElementById("balanceDueInSGD").textContent = total.toFixed(2);
+document.getElementById("gstSummary").textContent = decgst;
+document.getElementById("gstAmount").textContent = gstAmount.toFixed(2);
+document.getElementById("netAmount").textContent = subTotalAmount.toFixed(2);
+/*-----------------------------------------------------------------------------------------------------------------*/
+</script>
+</html>

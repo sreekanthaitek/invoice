@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill up Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .image{
+            height: 60px;
+            width: 80px;
+        }
+        .main-box{
+            background-color: lightgray;
+            height: auto;
+            width: 600px;
+            text-align: center;
+            display: flex;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center">
+    <div class="main-box mt-2">
+        <form class="col g-3 needs-validation" novalidate action="displayjpeg2.html" method="GET">
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="dpd-2" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>CSN No:</b></label>
+                <select class="form-select" id="dpd-1" required >
+                    <option selected disabled value="">Select CSN No</option>
+                    <option>200906834G</option>
+                    <option>201304790R</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose CSN Number
+                </div>
+            </div>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="dpd-2" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Company</b></label>
+                <select class="form-select" id="dpd-2" required >
+                    <option selected disabled value="">Select Company</option>
+                    <option>AITEK PTE LTD</option>
+                    <option>AITEK SERVICES PTE LTD</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose company name
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-1" class="form-label ms-2"><b class="text-danger star">* </b><b>Payment Period</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-1" name="fn-1" required placeholder="Please enter Payment Period">
+                    <div class="invalid-feedback">
+                        Payment Period is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-2" class="form-label ms-2"><b class="text-danger star">* </b><b>Month:</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-2" name="fn-2" required placeholder="Please enter Month">
+                    <div class="invalid-feedback">
+                        Month is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-3" class="form-label ms-2"><b class="text-danger star">* </b><b>Employee Name</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-3" name="fn-3" required placeholder="Please enter your name">
+                    <div class="invalid-feedback">
+                        Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-4" class="form-label ms-2"><b class="text-danger star">* </b><b>EMP NRIC/FIN</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-4" name="fn-4" required placeholder="Please enter EMP NRIC/FIN">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-4a" class="form-label ms-2"><b class="text-danger star">* </b><b>Date</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-4a" name="fn-4a" required placeholder="Please mention the date">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-5" class="form-label ms-2"><b class="text-danger star">* </b><b>Basic Salary</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-5" name="fn-5" required placeholder="Please enter your Basic Salary">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-6" class="form-label ms-2"><b>AWS</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-6" aria-describedby="fn-6" name="fn-6" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-7" class="form-label ms-2"><b>Bonus</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-7" aria-describedby="fn-7" name="fn-7" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-8" class="form-label ms-2"><b>Transportation</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-8" aria-describedby="fn-8" name="fn-8" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-9" class="form-label ms-2"><b>Overtime</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-9" aria-describedby="fn-9" name="fn-9" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-10" class="form-label ms-2"><b>Others Allowances Text(Name)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-10" aria-describedby="fn-10" name="fn-10" placeholder="e.g Expense Reimbursement">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-10a" class="form-label ms-2"><b>Others Allowances Value(Amount)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-10a" aria-describedby="fn-10a" name="fn-10a" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-10b" class="form-label ms-2"><b>Other Deductions-1(Name)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-10b" aria-describedby="fn-10b" name="fn-10b" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-10c" class="form-label ms-2"><b>Other Deductions-1(amount)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-10c" aria-describedby="fn-10c" name="fn-10c" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-10d" class="form-label ms-2"><b>Other Deductions-2(Name)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-10d" aria-describedby="fn-10d" name="fn-10d" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-10e" class="form-label ms-2"><b>Other Deductions-2(amount)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-10e" aria-describedby="fn-10e" name="fn-10e" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-11" class="form-label ms-2"><b>Unpaid leaves(amount)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-11" aria-describedby="fn-11" name="fn-11" placeholder="Enter amount for the leaves taken">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-12" class="form-label ms-2"><b>Skill Development Levy</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-12" aria-describedby="fn-12" name="fn-12" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-12a" class="form-label ms-2"><b>Employer CPF(Text)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-12a" aria-describedby="fn-12a" name="fn-12a" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-12b" class="form-label ms-2"><b>Employer CPF(Value)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-12b" aria-describedby="fn-12b" name="fn-12b" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-13" class="form-label ms-2"><b>CDAC/SINDA/MBMF</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-13" aria-describedby="fn-13" name="fn-13" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-14" class="form-label ms-2"><b class="text-danger star">* </b><b>Employee CPF(%)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-14" name="fn-14" required placeholder="Please give Employee CPF(%)">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-15" class="form-label ms-2"><b class="text-danger star">* </b><b>Employer CPF(%)</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="fn-15" name="fn-15" required placeholder="Please give Employer CPF(%)">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="text-start ms-4">
+                <p><b class="text-danger text-start">* represents mandatory </b></p>
+            </div>
+            <div class="col-12 ms-3">
+                <button class="btn btn-danger" type="submit" onclick="submitAll()">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function submitAll(){
+        const id1 = document.getElementById("fn-1").value;
+        const id2 = document.getElementById("fn-2").value;
+        const id3 = document.getElementById("fn-3").value;
+        const id4 = document.getElementById("fn-4").value;
+        const id4a = document.getElementById("fn-4a").value;
+        const id5 = document.getElementById("fn-5").value;
+        const id6 = document.getElementById("fn-6").value;
+        const id7 = document.getElementById("fn-7").value;
+        const id8 = document.getElementById("fn-8").value;
+        const id9 = document.getElementById("fn-9").value;
+        const id10 = document.getElementById("fn-10").value;
+        const id10a = document.getElementById("fn-10a").value;
+        const id10b = document.getElementById("fn-10b").value;
+        const id10c = document.getElementById("fn-10c").value;
+        const id10d = document.getElementById("fn-10d").value;
+        const id10e = document.getElementById("fn-10e").value;
+        const id11 = document.getElementById("fn-11").value;
+        const id12 = document.getElementById("fn-12").value;
+        const id12a = document.getElementById("fn-12a").value;
+        const id12b = document.getElementById("fn-12b").value;
+        const id13 = document.getElementById("fn-13").value;
+        const id14 = document.getElementById("fn-14").value;
+        const id15 = document.getElementById("fn-15").value;
+        const input1 = document.getElementById('dpd-1');
+        const selelctedIndex1 = input1.selectedIndex;
+        const selectedValue1 = input1.options[selelctedIndex1].value;
+        const input2 = document.getElementById('dpd-2');
+        const selelctedIndex2 = input2.selectedIndex;
+        const selectedValue2 = input2.options[selelctedIndex2].value;
+        if(id1.trim()===""||id2.trim()===""||id3.trim()===""||id4.trim()===""||id5.trim()===""||
+        selectedValue1.trim()===""||selectedValue2.trim()===""||id14.trim()===""||id15.trim()===""||id4a.trim()===""){
+            return;
+        }
+        localStorage.setItem('myValue1', selectedValue1);
+        window.location.href = 'display.html';
+        localStorage.setItem('myValue2', selectedValue2);
+        window.location.href = 'display.html';
+        const encodedid1 = encodeURIComponent(id1);
+        const encodedid2 = encodeURIComponent(id2);
+        const encodedid3 = encodeURIComponent(id3);
+        const encodedid4 = encodeURIComponent(id4);
+        const encodedid4a = encodeURIComponent(id4a);
+        const encodedid5 = encodeURIComponent(id5);
+        const encodedid6 = encodeURIComponent(id6);
+        const encodedid7 = encodeURIComponent(id7);
+        const encodedid8 = encodeURIComponent(id8);
+        const encodedid9 = encodeURIComponent(id9);
+        const encodedid10 = encodeURIComponent(id10);
+        const encodedid10a = encodeURIComponent(id10a);
+        const encodedid10b = encodeURIComponent(id10b);
+        const encodedid10c = encodeURIComponent(id10c);
+        const encodedid10d = encodeURIComponent(id10d);
+        const encodedid10e = encodeURIComponent(id10e);
+        const encodedid11 = encodeURIComponent(id11);
+        const encodedid12 = encodeURIComponent(id12);
+        const encodedid12a = encodeURIComponent(id12a);
+        const encodedid12b = encodeURIComponent(id12b);
+        const encodedid13 = encodeURIComponent(id13);
+        const encodedid14 = encodeURIComponent(id14);
+        const encodedid15 = encodeURIComponent(id15);
+        const encodeddpd1 = encodeURIComponent(selectedValue1);
+        const encodeddpd2 = encodeURIComponent(selectedValue2);
+        console.log(encodeddpd1);
+        window.location.href = `display.html?id1=${encodedid1}&id2=${encodedid2}&id3=${encodedid3}&id4=${encodedid4}&id5=${encodedid5}
+        &id6=${encodedid6}&id7=${encodedid7}&id8=${encodedid8}&id9=${encodedid9}&id10=${encodedid10}&id10a=${encodedid10a}&id11=${encodedid11}&id12=${encodedid12}
+        &id13=${encodedid13}&selectedValue1=${encodeddpd1}$selectedValue2=${encodeddpd2}&id14=${encodedid14}&id15=${encodedid15}&id10b=${encodedid10b}
+        &id10c=${encodedid10c}&id10d=${encodedid10d}&id10e=${encodedid10e}&id12a=${encodedid12a}&id12b=${encodedid12b}&id4a=${encodedid4a}`;
+    }
+</script>
+<script>
+    (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
+</html>

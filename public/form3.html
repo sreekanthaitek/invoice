@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .image{
+            height: 60px;
+            width: 80px;
+        }
+        .main-box{
+            background-color: lightgray;
+            height: auto;
+            width: 650px;
+            text-align: center;
+            display: flex;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            padding-top: 25px;
+        }
+        body{
+            background-image: linear-gradient(to right, #be2758,#b396b0,#b396b0,rgb(126, 126, 210));
+        }
+        .try{
+            margin-bottom: 70px;
+            width: 150px;
+            height: 50px;
+        }
+        .try:hover{
+            height: 70px;
+            width: 200px;
+            border: none;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center">
+    <div class="main-box mt-2">
+        <form class="col g-3 needs-validation" novalidate action="display3.html" method="GET">
+            <h2 class="text-danger text center"><i>Aitek Billings</i></h2>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-1" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Company</b></label>
+                <select class="form-select" id="drop-1" required >
+                    <option selected disabled value="">Select Company</option>
+                    <option>
+                        AITEK PVK IT SERVICES INC
+                    </option>
+                    <option>
+                        AITEK PTE LTD 
+                    </option>
+                    <option>
+                        AITEK SERVICES PTE LTD 
+                    </option>
+                    <option>AITEK PVK SDN BHD</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose company name
+                </div>
+            </div>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-2" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Invoice To</b></label>
+                <select class="form-select" id="drop-2" required >
+                    <option selected disabled value="">Select Company</option>
+                    <option>AITEK PVK IT SERVICES INC</option>
+                    <option>GAPbuster Worldwide Malaysia Sdn. Bhd</option>
+                    <option>RIZING SDN BHD</option>
+                    <option>C2C INNOVATIONS PTE. LTD</option>
+                    <option>INFOSYS SINGAPORE PTE. LTD</option>
+                    <option>ABeam Analytics Pte. Ltd</option>
+                    <option>ABeam Consulting (S) Pte Ltd</option>
+                    <option>ASTA INNOSYS PTE. LTD</option>
+                    <option>KPMG Services Pte Ltd</option>
+                    <option>WIPRO LIMITED</option>
+                    <option>BIRLASOFT LIMITED(SINGAPORE BRANCH)</option>
+                    <option>AITEK PVK SDN BHD</option>
+                    <option>Kaisa Consulting Company Inc.</option>
+                    <option>HGC Global communications Limited</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose company name
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-1" class="form-label ms-2"><b class="text-danger star">* </b><b>Invoice No</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-1" name="fn-1" required placeholder="Please enter Invoice number">
+                    <div class="invalid-feedback">
+                        Invoice number is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-2" class="form-label ms-2"><b class="text-danger star">* </b><b>Name</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-2" name="fn-2" required placeholder="Please enter client's name">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-6" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>ID/PO</b></label>
+                <select class="form-select" id="drop-6" required >
+                    <option selected disabled value="">Select ID Type</option>
+                    <option>ID</option>
+                    <option>PO</option>
+                    <option>--</option>
+                  </select>
+                <div class="invalid-feedback">
+                    This field is required
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start margin up">
+                <label for="fn-3" class="form-label ms-2"><b>ID OR PO VALUE</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-3" aria-describedby="fn-3" name="fn-3" placeholder="You can ignore if there is nothing">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-4" class="form-label ms-2"><b class="text-danger star">* </b><b>Date</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-4" name="fn-4" required placeholder="Please enter the Date">
+                    <div class="invalid-feedback">
+                        Date is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-3" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Currency</b></label>
+                <select class="form-select" id="drop-3" required >
+                    <option selected disabled value="">Select payment currency</option>
+                    <option>SGD/Hour</option>
+                    <option>SGD/Day</option>
+                    <option>SGD/Month</option>
+                    <option>MYR/Day</option>
+                    <option>MYR/Month</option>
+                    <option>PHP/Hour</option>
+                    <option>PHP/Day</option>
+                    <option>PHP/Month</option>
+                    <option>INR/Day</option>
+                    <option>INR/Month</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose currency type
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-5" class="form-label ms-2"><b class="text-danger star">* </b><b>Amount</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-5" name="fn-5" required placeholder="Please enter the Amount">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-6" class="form-label ms-2"><b class="text-danger star">* </b><b>Number of days or Number of Hours</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-6" name="fn-6" required placeholder="Please enter number of days or hours worked">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-4" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Tax Type</b></label>
+                <select class="form-select" id="drop-4" required >
+                    <option selected disabled value="">Select Tax Type</option>
+                    <option>GST</option>
+                    <option>SST</option>
+                    <option>VAT</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose Tax type
+                </div>
+            </div>
+            <!--
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-10" class="form-label ms-2"><b class="text-danger star">* </b><b>Swift code:</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-10" name="fn-10" required placeholder="Please enter Swift code">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="row-md-4 px-2 pt-1 has-validation text-start">
+                <label for="drop-5" class="form-label ms-2 text-start"><b class="text-danger star">* </b><b>Bank</b></label>
+                <select class="form-select" id="drop-5" required >
+                    <option selected disabled value="">Select Bank name</option>
+                    <option>Bank Name: BDO</option>
+                    <option>Bank: OVERSEA-CHINESE BANKING CORPORATION LIMITED</option>
+                    <option>Bank: DBS Bank</option>
+                    <option>Bank name: AMBANK (M) BERHAD</option>
+                  </select>
+                <div class="invalid-feedback">
+                    Choose Tax type
+                </div>
+            </div> -->
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-7" class="form-label ms-2"><b class="text-danger star">* </b><b>Tax Percentage</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-7" name="fn-7" required placeholder="Please enter tax Percentage">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-8" class="form-label ms-2"><b class="text-danger star">* </b><b>Period</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-8" name="fn-8" required placeholder="Please enter the period of work">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="fn-9" class="form-label ms-2"><b>Activity</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control move" id="fn-9" name="fn-9" placeholder="You can ignore this field" value="-">
+                </div>
+            </div>
+            <div class="row-md-4 p-2 text-start">
+                <label for="status" class="form-label ms-2"><b class="text-danger star">* </b><b>Status</b></label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="status" name="status" required placeholder="Status?" value="Not Paid">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="text-start ms-4">
+                <p><b class="text-danger text-start">* represents mandatory </b></p>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-danger try" type="submit" onclick="submitAll()">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function submitAll(){
+        const id1 = document.getElementById("fn-1").value;
+        const id2 = document.getElementById("fn-2").value;
+        const id3 = document.getElementById("fn-3").value;
+        const id4 = document.getElementById("fn-4").value;
+        const id5 = document.getElementById("fn-5").value;
+        const id6 = document.getElementById("fn-6").value;
+        const id7 = document.getElementById("fn-7").value;
+        const id8 = document.getElementById("fn-8").value;
+        const id9 = document.getElementById("fn-9").value;
+        /*const id10 = document.getElementById("fn-10").value;*/
+        const inp1 = document.getElementById("drop-1");
+        const selIndex1 = inp1.selectedIndex;
+        const selValue1 = inp1.options[selIndex1].value;
+        console.log(selValue1);
+        const inp2 = document.getElementById("drop-2");
+        const selIndex2 = inp2.selectedIndex;
+        const selValue2 = inp2.options[selIndex2].value;
+        const inp3 = document.getElementById("drop-3");
+        const selIndex3 = inp3.selectedIndex;
+        const selValue3 = inp3.options[selIndex3].value;
+        const inp4 = document.getElementById("drop-4");
+        const selIndex4 = inp4.selectedIndex;
+        const selValue4 = inp4.options[selIndex4].value;
+        /*const inp5 = document.getElementById("drop-5");
+        const selIndex5 = inp5.selectedIndex;
+        const selValue5 = inp5.options[selIndex5].value;*/
+        const inp6 = document.getElementById("drop-6");
+        const selIndex6 = inp6.selectedIndex;
+        const selValue6 = inp6.options[selIndex6].value;
+        console.log(selValue6);
+        if(id1.trim()===""||id2.trim()===""||id4.trim()===""||id5.trim()===""||id6.trim()===""||selValue4.trim()===""||/*selValue5.trim()===""||*/
+        selValue1.trim()===""||selValue2.trim()===""||selValue3.trim()===""||id7.trim()===""||id8.trim()===""||id9.trim()===""/*||id10.trim()===""*/||selValue6.trim()===""){
+            return;
+        }
+        sessionStorage.setItem("value1", selValue1);
+        window.location.href = 'display3.html';
+        sessionStorage.setItem("value2", selValue2);
+        window.location.href = 'display3.html';
+        sessionStorage.setItem("value3", selValue3);
+        window.location.href = 'display3.html';
+        sessionStorage.setItem("value4", selValue4);
+        window.location.href = 'display3.html';
+        /*sessionStorage.setItem("value5", selValue5);
+        window.location.href = 'display3.html';*/
+        sessionStorage.setItem("value6", selValue6);
+        window.location.href = 'display3.html';
+        const encodedid1 = encodeURIComponent(id1);
+        const encodedid2 = encodeURIComponent(id2);
+        const encodedid3 = encodeURIComponent(id3);
+        const encodedid4 = encodeURIComponent(id4);
+        const encodedid5 = encodeURIComponent(id5);
+        const encodedid6 = encodeURIComponent(id6);
+        const encodedid7 = encodeURIComponent(id7);
+        const encodedid8 = encodeURIComponent(id8);
+        const encodedid9 = encodeURIComponent(id9);
+        /*const encodedid10 = encodeURIComponent(id10);*/
+        window.location.href = `display3.html?id1=${encodedid1}&id2=${encodedid2}&id3=${encodedid3}&id4=${encodedid4}
+        &id5=${encodedid5}&id6=${encodedid6}&id7=${encodedid7}&id8=${encodedid8}`;
+    }
+</script>
+<script>
+    (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
+<script>
+$(function  (){
+    var keyUp = 38;
+    var keyDown = 40;
+    $(document).keydown(
+        function(e)
+        {
+            if (e.keyCode == keyDown) {
+                for(i = 0; i <= moves.length; i++) {
+                    if (moves[i] == $(".move:focus").get(0)) {
+                       $(moves[i + 1]).focus();
+                        break;
+                    }
+                }
+            }
+            if (e.keyCode == keyUp) {
+                for(i = 0; i <= moves.length; i++) {
+                    if (moves[i] == $(".move:focus").get(0)) {
+                       $(moves[i - 1]).focus();
+                        break;
+                    }
+                }
+            }
+        }
+    );
+});
+</script>
+</html>

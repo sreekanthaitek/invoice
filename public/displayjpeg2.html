@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+    .img {
+      height: 80px;
+      width: 80px;
+    }
+    .rows{
+        height: 10px;
+    }
+    .top{
+        margin-top: -40px;
+    }
+    td,tr{
+        font-size: 9px;
+    }
+    table{
+        max-height: 400px;
+        width: 100%;
+    }
+    .shrink{
+        height: 13px;
+    }
+    .shrink-1{
+        font-size: 10px;
+    }
+    .bottm{
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="top-1 d-flex justify-content-start mt-2 my-3">
+        <img src="./logo.jpeg" class="img">
+    </div>
+    <div class="d-flex justify-content-center top">
+        <h3>PAYSLIP</h3>
+    </div>
+    <form>
+        <table border="4" class="border-dark table-bordered">
+            <tr>
+                <td class="shrink"><b>CSN No:</b></td>
+                <td colspan="2" class="rows"><span id="dpd-1"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Company Name</b></td>
+                <td colspan="2" class="rows"><span id="dpd-2"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Payment Period</b></td>
+                <td colspan="2"><span id="fn-1"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Month</b></td>
+                <td colspan="2"><span id="fn-2"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Employee Name</b></td>
+                <td colspan="2"><b>EMP NRIC/FIN</b></td>
+                <td><b>Pay Date</b></td>
+            </tr>
+            <tr class="rows">
+                <td class="shrink"><span id="fn-3"></span></td>
+                <td colspan="2"><span id="fn-4"></span></td>
+                <td><span id="fn-4a"></span></td>
+            </tr>
+            <tr class="rows">
+                <td class="shrink-1"><b>Description<b></td>
+                <td colspan="2"><b></b></td>
+                <td class="shrink-1"><b>Amount in S$</b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Basic Salary</b></td>
+                <td colspan="2"><b></b></td>
+                <td>$<span id="fn-5"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Add:</b></td>
+                <td colspan="2"><b></b></td>
+                <td><b>$<span id="add"></span></b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">AWS</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-6"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Bonus</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-7"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span><b>Total Allowances</b></span></td>
+                <td colspan="2"></td>
+                <td><b>$<span id="totalAllo"></span></b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Transportation</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-8"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Overtime</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-9"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Others if any</span></td>
+                <td colspan="2"><span id="fn-10"></span></td>
+                <td>$<span id="fn-10a"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span><b>Total Deductions</b></span></td>
+                <td colspan="2"></td>
+                <td><b>$<span id="Deductions"></span></b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Employee CPF on Ordinary Wages</span></td>
+                <td colspan="2"><span id="fn-14"></span>%</td>
+                <td>$<span id="EmployeeCpf"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span id="fn-10b" class="ms-3"></span></td>
+                <td colspan="2"><span></span></td>
+                <td>$<span id="fn-10c"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span id="fn-10d" class="ms-3"></span></td>
+                <td colspan="2"><span></span></td>
+                <td>$<span id="fn-10e"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Unpaid Leaves/Others</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-11"></span></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Gross Pay</b></td>
+                <td colspan="2"></td>
+                <td><b>$<span id="fn-a"></span></b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><b>Net Pay</b></td>
+                <td colspan="2"></td>
+                <td><b>$<span id="netPay"></span></b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span><b>Total Employer Contribution</b></span></td>
+                <td colspan="2"></td>
+                <td><b>$<span id="EmployerCpf1"></span></b></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Employer CPF on Ordinary Wages</span></td>
+                <td colspan="2"><span id="fn-15"></span>%</td>
+                <td>$<span id="EmployerCpf"></span></td>
+            </tr>
+            <tr>
+                <td><span id="fn-12a" class="ms-3"></span></td>
+                <td colspan="2"></td>
+                <td id="fn-12b"></td>
+            </tr>
+            <tr>
+                <td class="shrink"><span class="ms-3">Skill Development Levy</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-12"></span></td>
+            </tr>
+            <tr>
+                <td><span class="ms-3">CDAC/SINDA/MBMF</span></td>
+                <td colspan="2"></td>
+                <td>$<span id="fn-13"></span></td>
+            </tr>
+            <tr>
+                <td class="bg-warning"><b>Total Salary Paid</b></td>
+                <td colspan="2" class="bg-warning"></td>
+                <td class="bg-warning"><b>$<span id="total"></span></b></td>
+            </tr>
+            <tr>
+                <td><b>Paid to:</b></td>
+                <td><b>Payment Mode:</b></td>
+                <td>Bank Transfer</td>
+            </tr>
+            <tr>
+                <td id="fn-3a"><span></span></td>
+                <td><b>Amount in words</b></td>
+                <td><span id="words"></span></td>
+            </tr>
+            <table class="table-bordered border-dark bottm" border="4">
+                <tr class="text-center">
+                    <td><b>This is electronically generated copy, No signature is required</b></td>
+                </tr>
+            </table>
+        </table>
+    </form>
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id1 = params.get("fn-1");
+    const id2 = params.get("fn-2");
+    const id3 = params.get("fn-3");
+    const id4 = params.get("fn-4");
+    const id4a = params.get("fn-4a");
+    const id5 = params.get("fn-5");
+    const id6 = params.get("fn-6");
+    const id7 = params.get("fn-7");
+    const id8 = params.get("fn-8");
+    const id9 = params.get("fn-9");
+    const id10 = params.get("fn-10");
+    const id10a = params.get("fn-10a");
+    const id11 = params.get("fn-11");
+    const id12 = params.get("fn-12");
+    const id12a = params.get("fn-12a");
+    const id12b = params.get("fn-12b");
+    const id13 = params.get("fn-13");
+    const id14 = params.get("fn-14");
+    const id15 = params.get("fn-15");
+    const idb = params.get("fn-10b");
+    const idc = params.get("fn-10c");
+    const idd = params.get("fn-10d");
+    const ide = params.get("fn-10e");
+    const decodedData1 = decodeURIComponent(id1);
+    const decodedData2 = decodeURIComponent(id2);
+    const decodedData3 = decodeURIComponent(id3);
+    const decodedData4 = decodeURIComponent(id4);
+    const decodedData4a = decodeURIComponent(id4a);
+    const decodedData5 = decodeURIComponent(id5);
+    const decodedData6 = decodeURIComponent(id6);
+    const decodedData7 = decodeURIComponent(id7);
+    const decodedData8 = decodeURIComponent(id8);
+    const decodedData9 = decodeURIComponent(id9);
+    const decodedData10 = decodeURIComponent(id10);
+    const decodedData10a = decodeURIComponent(id10a);
+    const decodedData11 = decodeURIComponent(id11);
+    const decodedData12 = decodeURIComponent(id12);
+    const decodedData12a = decodeURIComponent(id12a);
+    const decodedData12b = decodeURIComponent(id12b);
+    const decodedData13 = decodeURIComponent(id13);
+    const decodedData14 = decodeURIComponent(id14);
+    const decodedData15 = decodeURIComponent(id15);
+    const decodedData10b = decodeURIComponent(idb);
+    const decodedData10c = decodeURIComponent(idc);
+    const decodedData10d = decodeURIComponent(idd);
+    const decodedData10e = decodeURIComponent(ide);
+    document.getElementById("fn-1").textContent = decodedData1;
+    document.getElementById("fn-2").textContent = decodedData2;
+    document.getElementById("fn-3").textContent = decodedData3;
+    document.getElementById("fn-4").textContent = decodedData4;
+    document.getElementById("fn-4a").textContent = decodedData4a;
+    const numBs = (decodedData5===""||isNaN(decodedData5)) ? 0:parseFloat(decodedData5);
+    document.getElementById("fn-5").textContent = numBs.toFixed(2);
+    const num6 = (decodedData6===""||isNaN(decodedData6)) ? 0:parseFloat(decodedData6);
+    document.getElementById("fn-6").textContent = num6.toFixed(2);
+    const num7 = (decodedData7===""||isNaN(decodedData7)) ? 0:parseFloat(decodedData7);
+    document.getElementById("fn-7").textContent = num7.toFixed(2);
+    const num8 = (decodedData8===""||isNaN(decodedData8)) ? 0:parseFloat(decodedData8);
+    document.getElementById("fn-8").textContent = num8.toFixed(2);
+    const num9 = (decodedData9===""||isNaN(decodedData9)) ? 0:parseFloat(decodedData9);
+    document.getElementById("fn-9").textContent = num9.toFixed(2);
+    document.getElementById("fn-10").textContent = decodedData10;
+    document.getElementById("fn-10b").textContent = decodedData10b;
+    document.getElementById("fn-10d").textContent = decodedData10d;
+    const num10a = (decodedData10a===""||isNaN(decodedData10a)) ? 0:parseFloat(decodedData10a);
+    document.getElementById("fn-10a").textContent = num10a.toFixed(2);
+    const num10c = (decodedData10c===""||isNaN(decodedData10c)) ? 0:parseFloat(decodedData10c);
+    document.getElementById("fn-10c").textContent = num10c.toFixed(2);
+    const num10e = (decodedData10e===""||isNaN(decodedData10e)) ? 0:parseFloat(decodedData10e);
+    document.getElementById("fn-10e").textContent = num10e.toFixed(2);
+    document.getElementById("fn-a").textContent = numBs.toFixed(2);
+    document.getElementById("fn-3a").textContent = decodedData3;
+    const num11 = (decodedData11===""||isNaN(decodedData11)) ? 0:parseFloat(decodedData11);
+    document.getElementById("fn-11").textContent = num11.toFixed(2);
+    const num12 = (decodedData12===""||isNaN(decodedData12)) ? 0:parseFloat(decodedData12);
+    document.getElementById("fn-12").textContent = num12.toFixed(2);
+    const num13 = (decodedData13===""||isNaN(decodedData13)) ? 0:parseFloat(decodedData13);
+    document.getElementById("fn-13").textContent = num13.toFixed(2);
+    const add = num6+num7;
+    document.getElementById("add").textContent = add.toFixed(2);
+    const all = num8+num9+num10a;
+    document.getElementById("totalAllo").textContent = all.toFixed(2);
+    document.getElementById("fn-14").textContent = decodedData14;
+    document.getElementById("fn-15").textContent = decodedData15;
+    document.getElementById("fn-12a").textContent = decodedData12a;
+    document.getElementById("fn-12b").textContent = decodedData12b;
+    let ok;
+    if(decodedData5>=6300){
+        ok = parseFloat(6300*decodedData14/100).toFixed(2);
+    }
+    else{
+        ok = (numBs*decodedData14/100).toFixed(2);
+    }
+    document.getElementById("EmployeeCpf").innerHTML = ok;
+    const Deductions = (parseFloat(num11)+parseFloat(ok)+parseFloat(num10c)+parseFloat(num10e)).toFixed(2);
+    document.getElementById("Deductions").innerHTML = Deductions;
+    const netPay = (parseFloat(numBs)-parseFloat(Deductions)+parseFloat(all)+parseFloat(add)).toFixed(2);
+    document.getElementById("netPay").innerHTML = netPay;
+    let employerCpf;
+    if(numBs>=6300){
+        employerCpf = (6300*decodedData15/100).toFixed(2);
+    }
+    else{
+        employerCpf = (numBs*decodedData15/100).toFixed(2);
+    }
+    document.getElementById("EmployerCpf").textContent = employerCpf;
+    document.getElementById("EmployerCpf1").textContent = employerCpf;
+    document.getElementById("total").textContent = netPay;
+    function test(n){
+      if (n < 0){
+          return false;
+      }
+      const single_digit = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+      const double_digit = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      const below_hundred = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      if (n === 0){
+          return 'Zero';
+      } 
+      function translate(n) {
+        let word = "";
+        if (n < 10) {
+          word = single_digit[n] + ' ';
+        } 
+        else if (n < 20) {
+          word = double_digit[n - 10] + ' ';
+        } 
+        else if (n < 100) {
+          const rem = translate(n % 10);
+          word = below_hundred[Math.floor(n / 10) - 2] + ' ' + rem;
+        } 
+        else if (n < 1000) {
+          word = single_digit[Math.floor(n / 100)] + ' Hundred ' + translate(n % 100);
+        } 
+        else if (n < 1000000) {
+          word = translate(Math.floor(n / 1000)).trim() + ' Thousand ' + translate(n % 1000);
+        } 
+        else if (n < 1000000000) {
+          word = translate(Math.floor(n / 1000000)).trim() + ' Million ' + translate(n % 1000000);
+        } 
+        else {
+          word = translate(Math.floor(n / 1000000000)).trim() + ' Billion ' + translate(n % 1000000000);
+        }
+        return word;
+      }
+      const dollars = Math.floor(n);
+      const cents = Math.round((n - dollars) * 100);
+      let result = '';
+      if (dollars > 0) {
+        result = translate(dollars) + ' Dollars';
+      } 
+      else {
+        result = 'Zero Dollars';
+      }
+      if (cents > 0) {
+        result += ' and ' + translate(cents) + ' Cents';
+      }
+      return result.trim();
+    }
+    const word = test(netPay);
+    document.getElementById("words").textContent = word+" Only";
+</script>
+<script>
+    window.onload = function(){
+        const value1 = localStorage.getItem('myValue1');
+        document.getElementById("dpd-1").textContent = value1;
+        const value2 = localStorage.getItem('myValue2');
+        document.getElementById("dpd-2").textContent = value2;
+    }
+    function home(){
+      location.assign("./formjpeg2.html");
+    }
+</script>
+</html>

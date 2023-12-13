@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .image{
+            margin-top: 10px; 
+        }
+        .gap{
+            margin-top: -40px;
+        }
+        #address{
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <div class="justify-content-end d-flex me-5 mb-1 image"><img src="./logo.jpeg"></div>
+    <form>
+        <div class="justify-content-center d-flex h2 gap"><i>TAX INVOICE</i></div>
+            <table border="2" class="border-dark table-bordered w-100">
+                <tr>
+                    <td><b>Party Name: RIZING SDN BHD(1142727-A)</b></td>
+                    <td><b>Company Name:</b> Aitek PVK IT Services Private Limited</td>
+                </tr>
+                <tr>
+                    <td><b>Address</b></td>
+                </tr>
+                <tr>
+                    <td id="address"></td>
+                    <td>
+                        Invoice No: AITEK/ <span id="invoice"></span><br>
+                        Date: <span id="date"></span><br>
+                        GSTN:27AAVCA8748B1Z8<br>
+                        CIN: U72200MH2021PTC368579<br>
+                        PAN: AAVCA8748B
+                    </td>
+                    <td class="text-center"><b>SAC: 998313</b></td>
+                </tr>
+                <tr class="bg-warning">
+                    <td><b>Consulting fees for:</b> <span id="name"></span></td>
+                    <td><b>Period: </b><span id="period"></span></td>
+                    <td><b>No of Man days: </b><span id="days"></span></td>
+                </tr>
+                <tr class="text-end">
+                    <td><b>Rate per Day</b>&nbsp;&nbsp;</td>
+                    <td><b>Amount in INR</b>&nbsp;&nbsp;</td>
+                    <td><b>Amount in MYR&nbsp;&nbsp;</b></td>
+                </tr>
+                <tr class="text-end">
+                    <td><span id="rpd"></span>&nbsp;&nbsp;</td>
+                    <td><span id="inrAmount"></span>&nbsp;&nbsp;</td>
+                    <td><span id="sgd/myr"></span>&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="text-end">Net Amount:&nbsp;&nbsp;</td>
+                    <td></td>
+                    <td class="text-end"><span id="netAmount"></span>&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="text-end">CGST: &nbsp;&nbsp;</td>
+                    <td class="text-end">%&nbsp;&nbsp;</td>
+                    <td class="text-end">0&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="text-end">SGST: &nbsp;&nbsp;</td>
+                    <td class="text-end">%&nbsp;&nbsp;</td>
+                    <td class="text-end">0&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="text-end">IGST: &nbsp;&nbsp;</td>
+                    <td class="text-end"><span id="igst"></span>%&nbsp;&nbsp;</td>
+                    <td class="text-end"><span id="igstAmount">0</span>&nbsp;&nbsp;</td>
+                </tr>
+                <tr class="text-end">
+                    <td class="text-end">Grand Total:&nbsp;&nbsp;</td>
+                    <td><span id="grandTotal"></span>&nbsp;&nbsp;</td>
+                    <td><span id="myrTotal"></span>&nbsp;&nbsp;</td>
+                </tr>
+                <tr class="text-end">
+                    <td>Amount in words:&nbsp;&nbsp;</td>
+                    <td><span id="amountInWords"></span>&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><i>TERMS & CONDITIONS</i></h5>
+                        1. Payments to be made in favor of Aitek Pvk IT Services Private limited<br>
+                        2. All delayed payments will be charged @ 24% p.a.<br>
+                        3. The discrepancies if any should be noticed within 3 days of the bill.
+                    </td>
+                    <td>
+                        For Aitek PVK IT Services Private Limited.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Money Transfer Instructions</b><br>
+                        Beneficiary Name: AITEK PVK IT SERVICES INDIA PRIVATE LTD<br>
+                        Remit to A/C No. 259959506077<br>
+                        Bank & Branch: Mira Road- Mumbai-0600<br>
+                        IFSC: INDB0000600<br>
+                    </td>
+                    <td class="sign">
+                        Authorised signatory
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div class="text-center">
+            <b>Regd office: D-504, Holy Complex D and E Chs Ltd, Mira Bhayander Road, Mira Road East, Thane 401107</b>
+        </div>
+            </table>
+    </form>
+</body>
+<script>
+    const partyOp1 = "Unit 28.02, Menara LG, No., Jalan Wan Kadi, Taman Tun Dr.Ismai, \n6000 Kuala Lumpur\nReg No.(1142727-A)";
+    document.getElementById("address").textContent = partyOp1;   
+/*-----------------------------------------------------------------------------------------------------------------*/
+    const params = new URLSearchParams(window.location.search);
+    const invoiceNumber = params.get("invoiceNumber");
+    const date = params.get("date");
+    const servicePeriod = params.get("servicePeriod");
+    const fees = params.get("name");
+    const amount = params.get("amount");
+    const days = params.get("days");
+    const inr = params.get("inr");
+    const sam = params.get("sgd/myr");
+/*--------------------------------------------DECODING THE EXPORTED VALUES-----------------------------------------*/
+    const decinvoiceNumber = decodeURIComponent(invoiceNumber);
+    const decdate = decodeURIComponent(date);
+    const decservicePeriod = decodeURIComponent(servicePeriod);
+    const decfees = decodeURIComponent(fees);
+    const decamount = decodeURIComponent(amount);
+    const decdays = decodeURIComponent(days);
+    const decinr = decodeURIComponent(inr);
+    const decsam = decodeURIComponent(sam);
+/*------------------------------------------------------------------------------------------------------------------*/
+    document.getElementById("invoice").textContent = decinvoiceNumber;
+    document.getElementById("date").textContent = decdate;
+    document.getElementById("name").textContent = decfees;
+    document.getElementById("period").textContent = decservicePeriod;
+    document.getElementById("days").textContent = decdays;
+    document.getElementById("rpd").textContent = decamount;
+    document.getElementById("sgd/myr").textContent = parseFloat(decsam).toFixed(2);
+    document.getElementById("netAmount").textContent = parseFloat(decsam).toFixed(2);
+/*-----------------------------------------------------Math---------------------------------------------------------*/
+    let money = parseFloat(decdays)*parseFloat(decamount);
+    document.getElementById("inrAmount").textContent = money.toFixed(2);
+    document.getElementById("grandTotal").textContent = money.toFixed(2);
+    document.getElementById("myrTotal").textContent = parseFloat(decsam).toFixed(2);
+</script>
+<script>
+    let n = parseFloat(decsam).toFixed(2); 
+    function test(n){
+      if (n < 0){
+          return false;
+      }
+      const single_digit = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+      const double_digit = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      const below_hundred = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      if (n === 0){
+          return 'Zero';
+      } 
+      function translate(n) {
+        let word = "";
+        if (n < 10) {
+          word = single_digit[n] + ' ';
+        } 
+        else if (n < 20) {
+          word = double_digit[n - 10] + ' ';
+        } 
+        else if (n < 100) {
+          const rem = translate(n % 10);
+          word = below_hundred[Math.floor(n / 10) - 2] + ' ' + rem;
+        } 
+        else if (n < 1000) {
+          word = single_digit[Math.floor(n / 100)] + ' Hundred ' + translate(n % 100);
+        } 
+        else if (n < 1000000) {
+          word = translate(Math.floor(n / 1000)).trim() + ' Thousand ' + translate(n % 1000);
+        } 
+        else if (n < 1000000000) {
+          word = translate(Math.floor(n / 1000000)).trim() + ' Million ' + translate(n % 1000000);
+        } 
+        else {
+          word = translate(Math.floor(n / 1000000000)).trim() + ' Billion ' + translate(n % 1000000000);
+        }
+        return word;
+      }
+      const dollars = Math.floor(n);
+      const cents = Math.round((n - dollars) * 100);
+      let result = '';
+      if (dollars > 0) {
+        result = translate(dollars) + ' Riggets';
+      } 
+      else {
+        result = 'Zero Riggets';
+      }
+      if (cents > 0) {
+        result += ' and ' + translate(cents) + ' Cents';
+      }
+      return result.trim();
+    }
+    const word = test(n);
+    document.getElementById("amountInWords").textContent = word+" Only";
+</script>
+</html>
