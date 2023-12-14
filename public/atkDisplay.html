@@ -118,14 +118,18 @@
 </body>
 <script>
     const partyOp2 = "105 Cecil Stree, #11-00 The Octago, Singapore 069534";
-    const partyOp3 = "111 north bridge roa, 27-01 peninsula plaza, Singapore 179098\nROC: 200906834G";
+    const partyOp3 = "111 north bridge road, 27-01 peninsula plaza, Singapore 179098\nROC: 200906834G";
+    const partyOp4 = "111 north bridge road, 27-01 peninsula plaza, Singapore 179098\nROC: 201304790R";
     const dvalue1 = sessionStorage.getItem("value1");
     document.getElementById("pName").textContent = dvalue1;
     if(dvalue1==="Radiant Digital Solutions Private Limited"){
         document.getElementById("address").textContent = partyOp2;
     }
-    else{
+    else if(dvalue1="AITEK PTE LTD"){
         document.getElementById("address").textContent = partyOp3;
+    }
+    else{
+        document.getElementById("address").textContent = partyOp4;
     }
     /*-----------------------------------------------------------------------------------------------------------------*/
     const params = new URLSearchParams(window.location.search);
