@@ -31,9 +31,6 @@ app.use(session({
       //process.exit(2);
     }
   };
-const conn = process.env.MONGO_URL;
-mongoose.connect(conn);
-const inputSchema = new mongoose.Schema()
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/public/home.html');
