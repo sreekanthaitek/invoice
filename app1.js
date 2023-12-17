@@ -31,9 +31,16 @@ app.use(session({
       //process.exit(2);
     }
   };
+const conn = process.env.MONGO_URL;
+mongoose.connect(conn);
+const inputSchema = new mongoose.Schema()
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/public/home.html');
+})
+
+app.get('/offerForm.html',(req,res)=>{
+  res.sendFile(__dirname+'/public/offerForm.html')
 })
 
 app.post('/login', (req, res) => {
