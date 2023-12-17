@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="icon" href="logo.jpeg" style="border-radius: 25px;">
+    <style>
+         body{
+            background-image: linear-gradient(to right, #ba7f92,#b396b0,#b396b0,rgb(112, 112, 149));
+        }
+        .button{
+            width: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            height: 50px;
+        }
+        .button:hover{
+            width: 300px;
+            margin-bottom: 20px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center text-warning"><b><i>Fill up the details</i></b></h1>
+    <form method="post">
+        <div class="container">
+            <div class="row">
+                <h3><b><i>Staff Particulars</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Last Name/Surname/Family Name</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Surname" id="lName" required>
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>First Name</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your First name" id="fName" required>
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Nationality(i.e citizenship)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Nationality" id="nationality" required>
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Birth Place(Country)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Birth Place" id="birthPlace">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Passport Number</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Passport Number" id="passNumber" required>
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport issued date(eg 10th Aug 1990)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter issued date" id="pid">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport expiry date(eg 10th Aug 1990)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter expiry date" id="ped">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Passport issued country </i></b></label>
+                    <input class="form-control move mb-3" placeholder="Please enter specific country" id="pic">
+                </div>
+            </div>
+            <div class="row">
+                <h3><b><i>Other Personal Details</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Date of Birth</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your DOB" required id="dob">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Gender</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your gender" id="gender" required>
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Race</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your race" id="race" required>
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Religion</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your Religion" id="religion">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Martial Status</i></b></label>
+                    <input class="form-control move" placeholder="Married?" id="ms" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Home address</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your address" id="homeAdd" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b><i>Name of spouse</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="spouse">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b><i>Number of children</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="child" >
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Personal Mail</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your email" required type="email" id="mail">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Telephone contact</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your tel contact" id="tCon">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Mobile Contact</i></b></label>
+                    <input class="form-control move mb-3" placeholder="Please enter your mobile contact" id="mCon" required>
+                </div>
+            </div>
+            <div class="row">
+                <h3><b><i>Bank Details</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b class="text-danger">*</b><b><i>Name as per bank account</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your name" id="bankDetails" required>
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Personal bank name and branch</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your bank name" id="pBank" required>
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Address of bank(with postal code)</i></b></label>
+                    <input class="form-control move" placeholder="Please enter address of the bank" id="addrBank" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Personal bank account number</i></b></label>
+                    <input class="form-control move" placeholder="Please enter your account number" id="accNum" required>
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Sort code/Bank Key</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="sortCode">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Branch address/location</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="bLocation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Swift-Code/IFSC Code</i></b></label>
+                    <input class="form-control move" placeholder="Please enter the Swift-Code" id="swiftCode" required>
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>IBAN</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="iban">
+                </div>
+                <div class="mt-2 col-sm">
+                    <label><b class="text-danger">*</b><b><i>Any other Bank identifying info</i></b></label>
+                    <input class="form-control move" placeholder="You can ignore if you dont have" id="bInfo">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <h3><b><i>Emergency Contact</i></b></h3>
+                <div class="col-sm mt-2">
+                    <label><b><i>Name of the person</i></b></label>
+                    <input class="form-control move" placeholder="Please enter the name" id="emgName">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Relationship to staff</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="emgRelation">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm mt-2">
+                    <label><b><i>Contact Number(with Country Code)</i></b></label>
+                    <input class="form-control move" placeholder="Please fill this field" id="contact">
+                </div>
+                <div class="col-sm mt-2">
+                    <label><b><i>Address (with postal code)</i></b></label>
+                    <input class="form-control move mb-3" placeholder="Please fill this field" id="addr">
+                </div>
+            </div>
+        </div>
+        <center><button class="btn btn-danger button"><b><i>Submit</i></b></button></center>
+    </form>
+    <script>
+        $(function(){
+        var keyLeft = 37;
+        var keyRight = 39;
+        var keyUp = 38;
+        var keyDown = 40;
+        $(document).keydown(
+            function(e)
+            {
+                var moves = $(".move");
+                if (e.keyCode == keyRight) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i + 1]).focus();
+                            break;
+                        }
+                    }
+                }
+                if (e.keyCode == keyLeft) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i - 1]).focus();
+                            break;
+                        }
+                    }
+                }
+                if (e.keyCode == keyDown) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i + 6]).focus();
+                            break;
+                        }
+                    }
+                }
+                if (e.keyCode == keyUp) {
+                    for(i = 0; i <= moves.length; i++) {
+                        if (moves[i] == $(".move:focus").get(0)) {
+                           $(moves[i - 6]).focus();
+                            break;
+                        }
+                    }
+                }
+            }
+        );
+    });
+    </script>
+</body>
+</html>
